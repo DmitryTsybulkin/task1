@@ -13,7 +13,7 @@ public class General {
 
     private com.alfabattle.task1.common.Data data;
     private Integer total;
-    private String success;
+    private Boolean success;
     private Object error;
 
 }

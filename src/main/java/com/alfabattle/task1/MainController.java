@@ -80,14 +80,16 @@ public class MainController {
     public Set<AtmResponse> getNearestAtm(
             @RequestParam(name = "latitude", required = false) String latitude,
             @RequestParam(name = "longitude", required = false) String longitude,
-            @RequestParam(name = "payments", required = false, defaultValue = "false") Boolean payments
+            @RequestParam(name = "payments", required = false, defaultValue = "false") String payments
     ) {
+        System.out.println(payments);
         return data.stream().filter(atm -> {
-            if (payments) {
-                return atm.getPayments() && checkLocation(latitude, atm.getLatitude(), longitude, atm.getLongitude());
-            } else {
-                return !atm.getPayments() && checkLocation(latitude, atm.getLatitude(), longitude, atm.getLongitude());
-            }
+//            if (payments) {
+//                return atm.getPayments() && checkLocation(latitude, atm.getLatitude(), longitude, atm.getLongitude());
+//            } else {
+//                return !atm.getPayments() && checkLocation(latitude, atm.getLatitude(), longitude, atm.getLongitude());
+//            }
+            return true;
         }).collect(Collectors.toSet());
     }
 
@@ -119,7 +121,7 @@ public class MainController {
         if (first.isPresent()) {
             return first.get();
         } else {
-            throw new ResourceNotFoundException("404");
+            throw new ResourceNotFoundException("atm not found");
         }
     }
 
