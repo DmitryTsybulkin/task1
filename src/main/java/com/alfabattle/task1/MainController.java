@@ -92,7 +92,7 @@ public class MainController {
     }
 
     private boolean checkLocation(String sourceLat, String atmLat, String sourceLon, String atmLon) {
-        if (Objects.nonNull(sourceLat) && Objects.nonNull(sourceLon)) {
+        if (Objects.nonNull(sourceLat) && Objects.nonNull(sourceLon) && Objects.nonNull(atmLat) && Objects.nonNull(atmLon)) {
             return Math.abs(Double.parseDouble(atmLat) - Double.parseDouble(sourceLat)) < 2 &&
                     Math.abs(Double.parseDouble(atmLon) - Double.parseDouble(sourceLon)) < 2;
         } else {
