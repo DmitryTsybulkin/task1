@@ -83,6 +83,8 @@ public class MainController {
             @RequestParam(name = "payments", required = false, defaultValue = "false") String payments
     ) {
         System.out.println(payments);
+        System.out.println(latitude);
+        System.out.println(longitude);
         return data.stream().filter(atm -> {
 //            if (payments) {
 //                return atm.getPayments() && checkLocation(latitude, atm.getLatitude(), longitude, atm.getLongitude());
